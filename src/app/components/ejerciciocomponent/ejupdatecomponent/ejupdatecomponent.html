@@ -1,0 +1,59 @@
+<div class="container">
+  <div>
+    <h2>Formulario de Actualización de Ejercicios</h2>
+  </div>
+  <div>
+    <form [formGroup]="form" (ngSubmit)="actualizar()">
+      <mat-form-field class="example-full-width">
+        <mat-label>ID</mat-label>
+        <input matInput formControlName="codigo" readonly>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Tema</mat-label>
+        <input matInput type="text" placeholder="Fracciones" formControlName="tema">
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Enunciado</mat-label>
+        <textarea matInput rows="3" formControlName="enunciado"></textarea>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Respuesta correcta</mat-label>
+        <textarea matInput rows="3" formControlName="respuestaCorrecta"></textarea>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Contenido JSON (opcional)</mat-label>
+        <textarea matInput rows="3" formControlName="contenidoJson"></textarea>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Nivel de dificultad</mat-label>
+        <mat-select formControlName="nivelDificultad">
+          <mat-option [value]="1">1</mat-option>
+          <mat-option [value]="2">2</mat-option>
+          <mat-option [value]="3">3</mat-option>
+          <mat-option [value]="4">4</mat-option>
+          <mat-option [value]="5">5</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Estado</mat-label>
+        <input matInput type="text" placeholder="ACTIVO" formControlName="estado">
+      </mat-form-field>
+      <br>
+      <section class="example-section">
+        <mat-checkbox class="example-margin" formControlName="generadoPorIa">Generado por IA</mat-checkbox>
+      </section>
+      <br>
+      <button matButton type="submit">Guardar</button>
+
+    </form>
+    @if(mensaje){
+    <p>{{mensaje}}</p>
+    }
+  </div>
+</div>

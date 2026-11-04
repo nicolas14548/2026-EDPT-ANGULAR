@@ -1,0 +1,24 @@
+<div class="container">
+  <div>
+    <h2>Registro de Rol</h2>
+  </div>
+  <div>
+    <form [formGroup]="form" (ngSubmit)="insertar()">
+      <mat-form-field class="example-full-width">
+        <mat-label>Nombre del Rol</mat-label>
+        <input matInput type="text" placeholder="DOCENTE" formControlName="nombre">
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Descripción</mat-label>
+        <input matInput type="text" placeholder="Docente de la institución" formControlName="descripcion">
+      </mat-form-field>
+      <br>
+      <button matButton type="submit">Registrar</button>
+
+    </form>
+    @if(mensaje){
+    <p>{{mensaje}}</p>
+    }
+  </div>
+</div>

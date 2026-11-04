@@ -1,0 +1,33 @@
+<div class="container">
+  <mat-toolbar>
+    <button matIconButton routerLink="/" class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>home</mat-icon>
+    </button>
+
+    <button matButton [matMenuTriggerFor]="menuRol" style="color: aliceblue;">Rol</button>
+    <mat-menu #menuRol="matMenu">
+      <button mat-menu-item routerLink="/rol/listar">Listar</button>
+      <button mat-menu-item routerLink="/rol/insertar">Insertar</button>
+    </mat-menu>
+
+    <button matButton [matMenuTriggerFor]="menuUsuario" style="color: aliceblue;">Usuario</button>
+    <mat-menu #menuUsuario="matMenu">
+      <button mat-menu-item routerLink="/usuario/listar">Listar</button>
+      <button mat-menu-item routerLink="/usuario/insertar">Insertar</button>
+    </mat-menu>
+
+    <button matButton [matMenuTriggerFor]="menuEjercicio" style="color: aliceblue;">Ejercicio</button>
+    <mat-menu #menuEjercicio="matMenu">
+      <button mat-menu-item routerLink="/ejercicio/listar">Listar</button>
+      <button mat-menu-item routerLink="/ejercicio/insertar">Insertar</button>
+    </mat-menu>
+
+    <button matButton [matMenuTriggerFor]="menuEvaluacion" style="color: aliceblue;">Evaluación</button>
+    <mat-menu #menuEvaluacion="matMenu">
+      <button mat-menu-item routerLink="/evaluacion/listar">Listar</button>
+      <button mat-menu-item routerLink="/evaluacion/insertar">Insertar</button>
+      <button mat-menu-item routerLink="/evaluacion/buscar">Buscar</button>
+    </mat-menu>
+
+  </mat-toolbar>
+</div>

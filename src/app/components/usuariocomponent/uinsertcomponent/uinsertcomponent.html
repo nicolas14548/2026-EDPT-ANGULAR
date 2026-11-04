@@ -1,0 +1,54 @@
+<div class="container">
+  <div>
+    <h2>Registro de Usuario</h2>
+  </div>
+  <div>
+    <form [formGroup]="form" (ngSubmit)="insertar()">
+      <mat-form-field class="example-full-width">
+        <mat-label>Nombre</mat-label>
+        <input matInput type="text" formControlName="nombre">
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Apellido</mat-label>
+        <input matInput type="text" formControlName="apellido">
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Correo</mat-label>
+        <input matInput type="email" placeholder="correo@dominio.com" formControlName="email">
+        <mat-error>Ingrese un correo válido</mat-error>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Contraseña</mat-label>
+        <input matInput type="password" formControlName="password">
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Rol</mat-label>
+        <mat-select formControlName="idRol">
+          @for (r of roles; track r.id) {
+          <mat-option [value]="r.id">{{r.nombre}}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Apoderado (opcional)</mat-label>
+        <mat-select formControlName="idApoderado">
+          <mat-option [value]="null">Ninguno</mat-option>
+          @for (u of usuarios; track u.id) {
+          <mat-option [value]="u.id">{{u.nombre}} {{u.apellido}}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+      <br>
+      <button matButton type="submit">Registrar</button>
+
+    </form>
+    @if(mensaje){
+    <p>{{mensaje}}</p>
+    }
+  </div>
+</div>
