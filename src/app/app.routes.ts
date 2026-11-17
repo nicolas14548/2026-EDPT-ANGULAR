@@ -18,6 +18,9 @@ import { Evinsertcomponent } from './components/evaluacioncomponent/evinsertcomp
 import { Evupdatecomponent } from './components/evaluacioncomponent/evupdatecomponent/evupdatecomponent';
 import { Evbuscarcomponent } from './components/evaluacioncomponent/evbuscarcomponent/evbuscarcomponent';
 
+import { Ucantidadcomponent } from './components/usuariocomponent/ucantidadcomponent/ucantidadcomponent';
+import { Evcantidadcomponent } from './components/evaluacioncomponent/evcantidadcomponent/evcantidadcomponent';
+
 export const routes: Routes = [
   {
     path: '',
@@ -51,6 +54,10 @@ export const routes: Routes = [
     path: 'usuario',
     component: Usuariocomponent,
     children: [
+      {
+        path: 'cantidades',
+        component: Ucantidadcomponent,
+      },
       {
         path: '',
         redirectTo: 'listar',
@@ -97,6 +104,10 @@ export const routes: Routes = [
     path: 'evaluacion',
     component: Evaluacioncomponent,
     children: [
+      {
+        path: 'cantidades',
+        component: Evcantidadcomponent,
+      },
       {
         path: '',
         redirectTo: 'listar',

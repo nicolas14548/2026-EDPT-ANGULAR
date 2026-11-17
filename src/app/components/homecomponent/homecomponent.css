@@ -1,1 +1,154 @@
+.pagina {
+  background: #ffffff;
+  color: #1f2a37;
+  font-family: 'Poppins', Arial, sans-serif;
+  line-height: 1.6;
+}
 
+ h1, h2, h3 {
+  font-family: 'Poppins', Arial, sans-serif;
+  font-weight: 700;
+}
+
+.contenedor {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.centrado {
+  text-align: center;
+}
+
+.dos-columnas {
+  display: flex;
+  gap: 48px;
+  align-items: center;
+}
+
+.dos-columnas > * {
+  flex: 1;
+}
+
+/* Portada roja */
+.hero {
+  background: #d71920;
+  color: #ffffff;
+  padding: 64px 0;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0 0 16px;
+}
+
+.hero-texto {
+  font-size: 1.25rem;
+  margin: 0 0 24px;
+}
+
+.boton-blanco {
+  background: #ffffff;
+  color: #d71920;
+  font-family: 'Poppins', Arial, sans-serif;
+  font-weight: 700;
+  border-radius: 8px;
+  min-height: 44px;
+  padding: 0 24px;
+}
+
+.imagen {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+/* Secciones */
+.seccion {
+  padding: 72px 0;
+}
+
+.fondo-gris {
+  background: #f5f5f5;
+}
+
+.titulo-rojo {
+  color: #d71920;
+  font-size: 2.25rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 0 40px;
+}
+
+.introduccion {
+  font-size: 1.1rem;
+  color: #1f2a37;
+  margin: 0 0 24px;
+}
+
+.tarjeta {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-left: 4px solid #d71920;
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+}
+
+.tarjeta h3 {
+  font-size: 1rem;
+  margin: 0 0 8px;
+}
+
+.tarjeta p {
+  margin: 0;
+  color: #1f2a37;
+}
+
+/* Preguntas */
+.subtitulo {
+  text-align: center;
+  color: #1f2a37;
+  margin: -24px 0 40px;
+}
+
+.preguntas {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.pregunta {
+  border-top: 1px solid #e5e7eb;
+  padding: 20px 0;
+}
+
+.pregunta h3 {
+  font-size: 1rem;
+  margin: 0 0 8px;
+}
+
+.pregunta p {
+  margin: 0;
+  color: #1f2a37;
+}
+
+/* Contacto */
+.correo {
+  color: #d71920;
+  font-family: 'Poppins', Arial, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* Pie */
+.pie {
+  background: #1f2a37;
+  color: #ffffff;
+  text-align: center;
+  padding: 24px;
+  font-size: 0.9rem;
+}
