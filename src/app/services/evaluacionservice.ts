@@ -3,7 +3,6 @@ import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { EvaluacionDTO } from '../models/EvaluacionDTO';
-import { EvaluacionesPorEstudianteDTO } from '../models/EvaluacionesPorEstudianteDTO';
 
 @Injectable({
   providedIn: 'root',
@@ -36,8 +35,5 @@ export class Evaluacionservice {
 
   getPorEstudiante(idEstudiante: number): Observable<EvaluacionDTO[]> {
     return this.http.get<EvaluacionDTO[]>(`${this.apiURL}/estudiante/${idEstudiante}`);
-  }
-  getCantidadesPorEstudiante(): Observable<EvaluacionesPorEstudianteDTO[]> {
-    return this.http.get<EvaluacionesPorEstudianteDTO[]>(`${this.apiURL}/cantidades`);
   }
 }

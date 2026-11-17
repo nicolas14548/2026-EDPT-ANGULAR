@@ -3,7 +3,7 @@
     display: block;
     padding: 25px;
     font-family: Arial, sans-serif;
-    background-color: #F5F5F5;
+    background-color: #f5f7f5;
     min-height: 80vh;
     box-sizing: border-box;
 }
@@ -22,12 +22,12 @@
 /* Título */
 h2 {
     text-align: center;
-    color: #D71920;
+    color: #0aae4e;
     font-size: 26px;
     font-weight: bold;
     margin: 5px 0 30px;
     padding-bottom: 15px;
-    border-bottom: 2px solid #D71920;
+    border-bottom: 2px solid #0aae4e;
 }
 
 /* Selector de género */
@@ -47,13 +47,13 @@ button[mat-raised-button] {
     border-radius: 7px;
     font-size: 14px;
     font-weight: 600;
-    background-color: #D71920;
+    background-color: #0aae4e;
     color: white;
 }
 
 /* Efecto del botón */
 button[mat-raised-button]:hover {
-    background-color: #D71920;
+    background-color: #0aae4e;
 }
 
 /* Mensaje */
@@ -62,8 +62,8 @@ p {
     margin: 20px auto;
     padding: 14px;
     max-width: 500px;
-    background-color: #F5F5F5;
-    color: #D71920;
+    background-color: #e8eaf6;
+    color: #0aae4e;
     font-size: 15px;
     font-weight: 600;
     border-radius: 8px;
@@ -82,35 +82,35 @@ table {
 
 /* Encabezados */
 th[mat-header-cell] {
-    background-color: #F5F5F5;
-    color: #1F2A37;
+    background-color: #94eab7;
+    color: #212320;
     font-size: 14px;
     font-weight: 700;
     padding: 15px 12px;
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 0.4px;
-    border-bottom: 3px solid #A8141A;
+    border-bottom: 3px solid #0aae4e;
     white-space: nowrap;
 }
 
 /* Celdas */
 td[mat-cell] {
-    color: #1F2A37;
+    color: #333333;
     font-size: 14px;
     padding: 14px 12px;
     text-align: center;
-    border-bottom: 1px solid #E5E7EB;
+    border-bottom: 1px solid #e0e0e0;
 }
 
 /* Filas alternadas */
 tr[mat-row]:nth-child(even) {
-    background-color: #F5F5F5;
+    background-color: #e2f1e8;
 }
 
 /* Efecto al pasar el cursor */
 tr[mat-row]:hover {
-    background-color: #E5E7EB;
+    background-color: #a1dcba;
     transition: background-color 0.2s ease;
 }
 

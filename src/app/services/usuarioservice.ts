@@ -4,7 +4,6 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { UsuarioDTO } from '../models/UsuarioDTO';
 import { UsuarioInsertDTO } from '../models/UsuarioInsertDTO';
-import { UsuariosPorRolDTO } from '../models/UsuariosPorRolDTO';
 
 @Injectable({
   providedIn: 'root',
@@ -32,10 +31,6 @@ export class Usuarioservice {
 
   update(dto: UsuarioInsertDTO): Observable<UsuarioDTO> {
     return this.http.put<UsuarioDTO>(this.apiURL, dto);
-  }
-
-  getCantidadesPorRol(): Observable<UsuariosPorRolDTO[]> {
-    return this.http.get<UsuariosPorRolDTO[]>(`${this.apiURL}/cantidades`);
   }
 
 }
