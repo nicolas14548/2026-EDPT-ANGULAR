@@ -3,6 +3,7 @@ import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { UsuarioDTO } from '../models/UsuarioDTO';
+import { UsuarioInsertDTO } from '../models/UsuarioInsertDTO';
 
 @Injectable({
   providedIn: 'root',
@@ -20,7 +21,7 @@ export class Usuarioservice {
     return this.http.delete<void>(`${this.apiURL}/${id}`);
   }
 
-  insertUsuario(dto: UsuarioDTO): Observable<UsuarioDTO> {
+  insertUsuario(dto: UsuarioInsertDTO): Observable<UsuarioDTO> {
     return this.http.post<UsuarioDTO>(this.apiURL, dto);
   }
 
@@ -28,7 +29,7 @@ export class Usuarioservice {
     return this.http.get<UsuarioDTO>(`${this.apiURL}/${id}`);
   }
 
-  update(dto: UsuarioDTO): Observable<UsuarioDTO> {
+  update(dto: UsuarioInsertDTO): Observable<UsuarioDTO> {
     return this.http.put<UsuarioDTO>(this.apiURL, dto);
   }
 

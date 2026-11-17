@@ -21,16 +21,16 @@ export class Ejercicioservice {
     return this.http.delete<void>(`${this.apiURL}/${id}`);
   }
 
-  insertEjercicio(dto: EjercicioInsertDTO): Observable<EjercicioDTO> {
-    return this.http.post<EjercicioDTO>(this.apiURL, dto);
+  insertEjercicio(dto: EjercicioInsertDTO): Observable<EjercicioInsertDTO> {
+    return this.http.post<EjercicioInsertDTO>(this.apiURL, dto);
   }
 
-  listId(id: number): Observable<EjercicioDTO> {
-    return this.http.get<EjercicioDTO>(`${this.apiURL}/${id}`);
+  listId(id: number): Observable<EjercicioInsertDTO> {
+    return this.http.get<EjercicioInsertDTO>(`${this.apiURL}/${id}`);
   }
 
-  update(id: number, dto: EjercicioInsertDTO): Observable<EjercicioDTO> {
-    return this.http.put<EjercicioDTO>(`${this.apiURL}/${id}`, dto);
+  update(dto: EjercicioInsertDTO): Observable<EjercicioInsertDTO> {
+    return this.http.put<EjercicioInsertDTO>(this.apiURL, dto);
   }
 
 }

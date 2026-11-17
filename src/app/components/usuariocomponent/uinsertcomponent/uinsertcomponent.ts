@@ -7,6 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { Usuarioservice } from '../../../services/usuarioservice';
 import { Rolservice } from '../../../services/rolservice';
 import { UsuarioDTO } from '../../../models/UsuarioDTO';
+import { UsuarioInsertDTO } from '../../../models/UsuarioInsertDTO';
 import { RolDTO } from '../../../models/RolDTO';
 
 @Component({
@@ -63,7 +64,7 @@ export class Uinsertcomponent implements OnInit {
       this.mensaje = 'Por favor, complete todos los campos correctamente!!'
       return
     }
-    const usuario: UsuarioDTO = {
+    const usuario: UsuarioInsertDTO = {
       id: 0,
       nombre: this.form.value.nombre,
       apellido: this.form.value.apellido,
@@ -71,6 +72,9 @@ export class Uinsertcomponent implements OnInit {
       password: this.form.value.password,
       idRol: this.form.value.idRol,
       idApoderado: this.form.value.idApoderado,
+      idDocente: null,
+      grado: null,
+      seccion: null,
       estado: ''
     }
 

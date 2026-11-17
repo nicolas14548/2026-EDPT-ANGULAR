@@ -30,7 +30,9 @@ export class Rupdatecomponent implements OnInit {
     this.form = this.fb.group({
       codigo: [0],
       nombre: ['', Validators.required],
-      descripcion: ['', Validators.required]
+      descripcion: ['', Validators.required],
+      fechaCreacionRol: [null],
+      actualizadoEnRol: [null]
     });
   }
 
@@ -50,8 +52,10 @@ export class Rupdatecomponent implements OnInit {
       next: (data: RolDTO) => {
         this.form.patchValue({
           codigo: data.id,
-          nombre: data.nombre,
-          descripcion: data.descripcion
+          nombre: data.nombreRol,
+          descripcion: data.descripcionRol,
+          fechaCreacionRol: data.fechaCreacionRol,
+          actualizadoEnRol: data.actualizadoEnRol
         })
         this.cdr.detectChanges()
       },
@@ -70,10 +74,10 @@ export class Rupdatecomponent implements OnInit {
     }
     const dto: RolDTO = {
       id: this.form.value.codigo,
-      nombre: this.form.value.nombre,
-      descripcion: this.form.value.descripcion,
-      fechaCreacion: null,
-      actualizadoEn: null
+      nombreRol: this.form.value.nombre,
+      descripcionRol: this.form.value.descripcion,
+      fechaCreacionRol: this.form.value.fechaCreacionRol,
+      actualizadoEnRol: this.form.value.actualizadoEnRol
     }
 
     this.cS.update(dto).subscribe({

@@ -13,6 +13,29 @@
         </mat-select>
       </mat-form-field>
       <br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Tipo de evaluación</mat-label>
+        <input matInput type="text" formControlName="tipo">
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Total de ejercicios</mat-label>
+        <input matInput type="number" formControlName="totalEjercicios">
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Fecha de inicio</mat-label>
+        <input matInput type="datetime-local" formControlName="fechaInicio">
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Estado</mat-label>
+        <mat-select formControlName="estado">
+          <mat-option [value]="'EN_CURSO'">EN_CURSO</mat-option>
+          <mat-option [value]="'FINALIZADA'">FINALIZADA</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
       <button matButton type="submit">Registrar</button>
 
     </form>

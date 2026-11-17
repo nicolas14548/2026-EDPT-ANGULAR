@@ -13,7 +13,7 @@ import { Ejercicioservice } from '../../../services/ejercicioservice';
 })
 export class Ejlistcomponent implements OnInit {
 
-  displayedColumns: string[] = ['C1', 'C2', 'C3', 'C4', 'C5', 'C6', 'C7']
+  displayedColumns: string[] = ['C1', 'C2', 'C3', 'C4', 'C5', 'C6', 'C7', 'C8']
   dataSource: EjercicioDTO[] = []
   mensaje: string = ''
 

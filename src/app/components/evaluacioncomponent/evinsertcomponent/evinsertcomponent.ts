@@ -33,7 +33,11 @@ export class Evinsertcomponent implements OnInit {
     private cdr: ChangeDetectorRef
   ) {
     this.form = this.fb.group({
-      idEstudiante: [null, Validators.required]
+      idEstudiante: [null, Validators.required],
+      tipo: ['', Validators.required],
+      estado: ['EN_CURSO', Validators.required],
+      totalEjercicios: [null, Validators.required],
+      fechaInicio: ['', Validators.required]
     });
   }
 
@@ -48,22 +52,25 @@ export class Evinsertcomponent implements OnInit {
 
   insertar(): void {
     if (this.form.invalid) {
-      this.mensaje = 'Por favor, seleccione un estudiante!!'
+      this.mensaje = 'Por favor, complete todos los campos correctamente!!'
       return
     }
-    // El estado inicial (EN_CURSO) lo asigna la API
     const evaluacion: EvaluacionDTO = {
       id: 0,
       idEstudiante: this.form.value.idEstudiante,
-      estado: '',
-      fechaInicio: null,
-      fechaFin: null
+      tipo: this.form.value.tipo,
+      estado: this.form.value.estado,
+      totalEjercicios: this.form.value.totalEjercicios,
+      fechaInicio: this.form.value.fechaInicio,
+      fechaFin: null,
+      puntaje: null,
+      respuestas: null
     }
 
     this.cS.insertEvaluacion(evaluacion).subscribe({
       next: () => {
         this.mensaje = 'Evaluación insertada correctamente!!'
-        this.form.reset()
+        this.form.reset({ estado: 'EN_CURSO' })
         this.cdr.detectChanges()
       },
       error: (error) => {

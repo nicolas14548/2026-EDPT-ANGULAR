@@ -49,7 +49,7 @@ export class Ulistcomponent implements OnInit {
   }
 
   nombreRol(idRol: number): string {
-    return this.roles.find(r => r.id === idRol)?.nombre ?? String(idRol)
+    return this.roles.find(r => r.id === idRol)?.nombreRol ?? String(idRol)
   }
 
   eliminar(id: number): void {

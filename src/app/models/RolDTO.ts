@@ -1,7 +1,7 @@
 export class RolDTO {
     id: number = 0
-    nombre: string = ''
-    descripcion: string = ''
-    fechaCreacion: string | null = null
-    actualizadoEn: string | null = null
+    nombreRol: string = ''
+    descripcionRol: string = ''
+    fechaCreacionRol: string | null = null
+    actualizadoEnRol: string | null = null
 }

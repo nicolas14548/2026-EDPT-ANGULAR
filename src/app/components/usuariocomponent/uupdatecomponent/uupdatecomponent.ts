@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { Usuarioservice } from '../../../services/usuarioservice';
 import { Rolservice } from '../../../services/rolservice';
 import { UsuarioDTO } from '../../../models/UsuarioDTO';
+import { UsuarioInsertDTO } from '../../../models/UsuarioInsertDTO';
 import { RolDTO } from '../../../models/RolDTO';
 
 @Component({
@@ -43,7 +44,11 @@ export class Uupdatecomponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
       idRol: [null, Validators.required],
-      idApoderado: [null]
+      idApoderado: [null],
+      idDocente: [null],
+      grado: [null],
+      seccion: [null],
+      estado: ['']
     });
   }
 
@@ -79,7 +84,11 @@ export class Uupdatecomponent implements OnInit {
           apellido: data.apellido,
           email: data.email,
           idRol: data.idRol,
-          idApoderado: data.idApoderado
+          idApoderado: data.idApoderado,
+          idDocente: data.idDocente,
+          grado: data.grado,
+          seccion: data.seccion,
+          estado: data.estado
         })
         this.cdr.detectChanges()
       },
@@ -96,7 +105,7 @@ export class Uupdatecomponent implements OnInit {
       this.mensaje = 'Por favor, complete todos los campos correctamente (la API exige la contraseña)!!'
       return
     }
-    const dto: UsuarioDTO = {
+    const dto: UsuarioInsertDTO = {
       id: this.form.value.codigo,
       nombre: this.form.value.nombre,
       apellido: this.form.value.apellido,
@@ -104,7 +113,10 @@ export class Uupdatecomponent implements OnInit {
       password: this.form.value.password,
       idRol: this.form.value.idRol,
       idApoderado: this.form.value.idApoderado,
-      estado: ''
+      idDocente: this.form.value.idDocente,
+      grado: this.form.value.grado,
+      seccion: this.form.value.seccion,
+      estado: this.form.value.estado
     }
 
     this.cS.update(dto).subscribe({

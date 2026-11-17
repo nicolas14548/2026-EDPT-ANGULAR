@@ -1,7 +1,11 @@
 export class EvaluacionDTO {
     id: number = 0
     idEstudiante: number = 0
+    tipo: string = ''
     estado: string = ''
-    fechaInicio: string | null = null
+    totalEjercicios: number = 0
+    fechaInicio: string = ''
     fechaFin: string | null = null
+    puntaje: number | null = null
+    respuestas: string | null = null
 }

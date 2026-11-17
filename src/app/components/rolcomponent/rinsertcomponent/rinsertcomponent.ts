@@ -35,8 +35,8 @@ export class Rinsertcomponent {
     }
     const rol: RolInsertDTO = {
       id: 0,
-      nombre: this.form.value.nombre,
-      descripcion: this.form.value.descripcion
+      nombreRol: this.form.value.nombre,
+      descripcionRol: this.form.value.descripcion
     }
 
     this.cS.insertRol(rol).subscribe({

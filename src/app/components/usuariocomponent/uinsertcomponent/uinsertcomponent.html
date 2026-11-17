@@ -29,7 +29,7 @@
         <mat-label>Rol</mat-label>
         <mat-select formControlName="idRol">
           @for (r of roles; track r.id) {
-          <mat-option [value]="r.id">{{r.nombre}}</mat-option>
+          <mat-option [value]="r.id">{{r.nombreRol}}</mat-option>
           }
         </mat-select>
       </mat-form-field>

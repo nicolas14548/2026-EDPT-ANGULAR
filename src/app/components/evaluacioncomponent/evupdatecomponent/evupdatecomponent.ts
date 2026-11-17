@@ -25,6 +25,7 @@ export class Evupdatecomponent implements OnInit {
   id: number = 0
 
   usuarios: UsuarioDTO[] = []
+  evaluacionOriginal: EvaluacionDTO | null = null
   form: FormGroup
   mensaje: string = ''
 
@@ -62,6 +63,7 @@ export class Evupdatecomponent implements OnInit {
   buscarPorId(): void {
     this.cS.listId(this.id).subscribe({
       next: (data: EvaluacionDTO) => {
+        this.evaluacionOriginal = data
         this.form.patchValue({
           codigo: data.id,
           idEstudiante: data.idEstudiante,
@@ -82,12 +84,20 @@ export class Evupdatecomponent implements OnInit {
       this.mensaje = 'Por favor, complete todos los campos correctamente!!'
       return
     }
+    if (!this.evaluacionOriginal) {
+      this.mensaje = 'Primero debe cargar la evaluación'
+      return
+    }
     const dto: EvaluacionDTO = {
       id: this.form.value.codigo,
       idEstudiante: this.form.value.idEstudiante,
       estado: this.form.value.estado,
-      fechaInicio: null,
-      fechaFin: null
+      tipo: this.evaluacionOriginal.tipo,
+      totalEjercicios: this.evaluacionOriginal.totalEjercicios,
+      fechaInicio: this.evaluacionOriginal.fechaInicio,
+      fechaFin: this.evaluacionOriginal.fechaFin,
+      puntaje: this.evaluacionOriginal.puntaje,
+      respuestas: this.evaluacionOriginal.respuestas
     }
 
     this.cS.update(dto).subscribe({

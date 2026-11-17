@@ -7,8 +7,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { Ejercicioservice } from '../../../services/ejercicioservice';
-import { EjercicioDTO } from '../../../models/EjercicioDTO';
 import { EjercicioInsertDTO } from '../../../models/EjercicioInsertDTO';
+import { Usuarioservice } from '../../../services/usuarioservice';
+import { UsuarioDTO } from '../../../models/UsuarioDTO';
 
 @Component({
   selector: 'app-ejupdatecomponent',
@@ -25,20 +26,24 @@ import { EjercicioInsertDTO } from '../../../models/EjercicioInsertDTO';
 export class Ejupdatecomponent implements OnInit {
   id: number = 0
 
+  usuarios: UsuarioDTO[] = []
   form: FormGroup
   mensaje: string = ''
 
   constructor(
     private cS: Ejercicioservice,
+    private uS: Usuarioservice,
     private fb: FormBuilder,
     private route: ActivatedRoute,
     private cdr: ChangeDetectorRef
   ) {
     this.form = this.fb.group({
       codigo: [0],
+      materia: ['', Validators.required],
       tema: ['', Validators.required],
       enunciado: ['', Validators.required],
       respuestaCorrecta: ['', Validators.required],
+      idCreadoPor: [null, Validators.required],
       contenidoJson: [''],
       nivelDificultad: [1],
       estado: ['ACTIVO'],
@@ -54,20 +59,33 @@ export class Ejupdatecomponent implements OnInit {
       this.mensaje = 'ID inválido'
       return
     }
+    this.uS.getUsuario().subscribe({
+      next: data => {
+        this.usuarios = data
+        this.cdr.detectChanges()
+      },
+      error: error => {
+        console.error(error)
+        this.mensaje = error?.error?.message ?? 'Error al cargar los usuarios'
+        this.cdr.detectChanges()
+      }
+    })
     this.buscarPorId()
   }
 
   buscarPorId(): void {
     this.cS.listId(this.id).subscribe({
-      next: (data: EjercicioDTO) => {
-        // La API no devuelve la respuesta correcta: hay que volver a escribirla
+      next: (data: EjercicioInsertDTO) => {
         this.form.patchValue({
           codigo: data.id,
+          materia: data.materia,
           tema: data.tema,
           enunciado: data.enunciado,
+          respuestaCorrecta: data.respuestaCorrecta,
           contenidoJson: data.contenidoJson,
           nivelDificultad: data.nivelDificultad,
           generadoPorIa: data.generadoPorIa,
+          idCreadoPor: data.idCreadoPor,
           estado: data.estado
         })
         this.cdr.detectChanges()
@@ -82,20 +100,23 @@ export class Ejupdatecomponent implements OnInit {
 
   actualizar(): void {
     if (this.form.invalid) {
-      this.mensaje = 'Por favor, complete todos los campos (escriba de nuevo la respuesta correcta)!!'
+      this.mensaje = 'Por favor, complete todos los campos correctamente!!'
       return
     }
     const dto: EjercicioInsertDTO = {
+      id: this.form.value.codigo,
+      materia: this.form.value.materia,
       tema: this.form.value.tema,
       enunciado: this.form.value.enunciado,
       contenidoJson: this.form.value.contenidoJson,
       respuestaCorrecta: this.form.value.respuestaCorrecta,
       nivelDificultad: this.form.value.nivelDificultad,
       generadoPorIa: this.form.value.generadoPorIa,
+      idCreadoPor: this.form.value.idCreadoPor,
       estado: this.form.value.estado
     }
 
-    this.cS.update(this.form.value.codigo, dto).subscribe({
+    this.cS.update(dto).subscribe({
       next: () => {
         this.mensaje = 'Actualizado correctamente!!'
         this.cdr.detectChanges()
