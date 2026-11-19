@@ -71,7 +71,7 @@ export class Ejinsertcomponent implements OnInit {
       materia: this.form.value.materia,
       tema: this.form.value.tema,
       enunciado: this.form.value.enunciado,
-      contenidoJson: this.form.value.contenidoJson,
+      contenidoJson: this.form.value.contenidoJson || null,      
       respuestaCorrecta: this.form.value.respuestaCorrecta,
       nivelDificultad: this.form.value.nivelDificultad,
       generadoPorIa: this.form.value.generadoPorIa,
