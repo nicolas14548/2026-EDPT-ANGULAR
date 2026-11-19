@@ -40,6 +40,14 @@
       </mat-form-field>
       <br>
       <mat-form-field>
+        <mat-label>Estado</mat-label>
+        <mat-select formControlName="estado">
+          <mat-option value="ACTIVO">Activo</mat-option>
+          <mat-option value="INACTIVO">Inactivo</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
         <mat-label>Apoderado (opcional)</mat-label>
         <mat-select formControlName="idApoderado">
           <mat-option [value]="null">Ninguno</mat-option>

@@ -48,7 +48,7 @@ export class Uupdatecomponent implements OnInit {
       idDocente: [null],
       grado: [null],
       seccion: [null],
-      estado: ['']
+      estado: ['ACTIVO', Validators.required]
     });
   }
 
@@ -88,7 +88,7 @@ export class Uupdatecomponent implements OnInit {
           idDocente: data.idDocente,
           grado: data.grado,
           seccion: data.seccion,
-          estado: data.estado
+          estado: data.estado || 'ACTIVO'
         })
         this.cdr.detectChanges()
       },
