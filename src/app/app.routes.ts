@@ -17,7 +17,9 @@ import { Evlistcomponent } from './components/evaluacioncomponent/evlistcomponen
 import { Evinsertcomponent } from './components/evaluacioncomponent/evinsertcomponent/evinsertcomponent';
 import { Evupdatecomponent } from './components/evaluacioncomponent/evupdatecomponent/evupdatecomponent';
 import { Logincomponent } from './components/logincomponent/logincomponent';
-import { authGuard } from './guards/auth.guard';
+import { authGuard } from './core/guards/auth-guard';
+import { roleGuard } from './core/guards/role-guard';
+import { Accesodenegadocomponent } from './components/accesodenegadocomponent/accesodenegadocomponent';
 import { Evbuscarcomponent } from './components/evaluacioncomponent/evbuscarcomponent/evbuscarcomponent';
 
 import { Ucantidadcomponent } from './components/usuariocomponent/ucantidadcomponent/ucantidadcomponent';
@@ -31,13 +33,25 @@ export const routes: Routes = [
 
   {
     path: '',
+    redirectTo: 'login',
+    pathMatch: 'full',
+  },
+
+  {
+    path: 'inicio',
     component: Homecomponent,
     canActivate: [authGuard],
   },
 
   {
+    path: 'acceso-denegado',
+    component: Accesodenegadocomponent,
+  },
+
+  {
     path: 'rol',
-    canActivate: [authGuard],
+    canActivate: [authGuard, roleGuard],
+    data: { roles: ['ADMIN'] },
     component: Rolcomponent,
     children: [
       {
@@ -61,7 +75,8 @@ export const routes: Routes = [
 
   {
     path: 'usuario',
-    canActivate: [authGuard],
+    canActivate: [authGuard, roleGuard],
+    data: { roles: ['ADMIN'] },
     component: Usuariocomponent,
     children: [
       {
@@ -142,5 +157,5 @@ export const routes: Routes = [
       },
     ],
   },
-  { path: '**', redirectTo: '' },
+  { path: '**', redirectTo: 'login' },
 ];

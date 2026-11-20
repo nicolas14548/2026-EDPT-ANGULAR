@@ -39,7 +39,7 @@ export class Ejinsertcomponent implements OnInit {
       tema: ['', Validators.required],
       enunciado: ['', Validators.required],
       respuestaCorrecta: ['', Validators.required],
-      idCreadoPor: [null, Validators.required],
+      idCreadoPor: [null],
       contenidoJson: [''],
       nivelDificultad: [1],
       estado: ['ACTIVO'],

@@ -34,9 +34,13 @@
         <th mat-header-cell *matHeaderCellDef>Eliminar</th>
         <td mat-cell *matCellDef="let element">
 
-          <button mat-icon-button class="a" (click)="eliminar(element.id)">
+          @if (esAdmin) {
+
+            <button mat-icon-button class="a" (click)="eliminar(element.id)">
             <mat-icon>delete</mat-icon>
           </button>
+
+          }
 
         </td>
       </ng-container>
@@ -52,12 +56,12 @@
       </ng-container>
       <ng-container matColumnDef="C8">
         <th mat-header-cell *matHeaderCellDef>Creado por</th>
-        <td mat-cell *matCellDef="let element">{{ element.idCreadoPor ?? '-' }}</td>
+        <td mat-cell *matCellDef="let element">{{ nombreUsuario(element.idCreadoPor) }}</td>
       </ng-container>
 
       <ng-container matColumnDef="C9">
         <th mat-header-cell *matHeaderCellDef>Actualizado por</th>
-        <td mat-cell *matCellDef="let element">{{ element.idActualizadoPor ?? '-' }}</td>
+        <td mat-cell *matCellDef="let element">{{ nombreUsuario(element.idActualizadoPor) }}</td>
       </ng-container>
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>

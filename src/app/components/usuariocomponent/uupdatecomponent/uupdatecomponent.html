@@ -41,9 +41,9 @@
       <br>
       <mat-form-field>
         <mat-label>Estado</mat-label>
-        <mat-select formControlName="estado">
-          <mat-option value="ACTIVO">Activo</mat-option>
-          <mat-option value="INACTIVO">Inactivo</mat-option>
+        <mat-select formControlName="enabled">
+          <mat-option [value]="true">Activo</mat-option>
+          <mat-option [value]="false">Inactivo</mat-option>
         </mat-select>
       </mat-form-field>
       <br>
@@ -51,24 +51,6 @@
         <mat-label>Apoderado (opcional)</mat-label>
         <mat-select formControlName="idApoderado">
           <mat-option [value]="null">Ninguno</mat-option>
-          @for (u of usuarios; track u.id) {
-          <mat-option [value]="u.id">{{u.nombre}} {{u.apellido}}</mat-option>
-          }
-        </mat-select>
-      </mat-form-field>
-      <br>
-      <mat-form-field>
-        <mat-label>Creado por</mat-label>
-        <mat-select formControlName="idCreadoPor">
-          @for (u of usuarios; track u.id) {
-          <mat-option [value]="u.id">{{u.nombre}} {{u.apellido}}</mat-option>
-          }
-        </mat-select>
-      </mat-form-field>
-      <br>
-      <mat-form-field>
-        <mat-label>Actualizado por</mat-label>
-        <mat-select formControlName="idActualizadoPor">
           @for (u of usuarios; track u.id) {
           <mat-option [value]="u.id">{{u.nombre}} {{u.apellido}}</mat-option>
           }

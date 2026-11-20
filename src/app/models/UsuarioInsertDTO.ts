@@ -9,7 +9,7 @@ export class UsuarioInsertDTO {
     idDocente: number | null = null
     grado: number | null = null
     seccion: string | null = null
-    estado: string = ''
+    enabled: boolean = true
     idCreadoPor: number | null = null
     idActualizadoPor: number | null = null
 }

@@ -40,7 +40,7 @@ export class Rupdatecomponent implements OnInit {
       nombre: ['', Validators.required],
       descripcion: ['', Validators.required],
       idCreadoPor: [null],
-      idActualizadoPor: [null, Validators.required]
+      idActualizadoPor: [null]
     });
   }
 

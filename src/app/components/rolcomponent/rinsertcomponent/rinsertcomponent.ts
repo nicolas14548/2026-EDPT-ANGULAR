@@ -30,7 +30,7 @@ export class Rinsertcomponent implements OnInit {
     this.form = this.fb.group({
       nombre: ['', Validators.required],
       descripcion: ['', Validators.required],
-      idCreadoPor: [null, Validators.required]
+      idCreadoPor: [null]
     });
   }
 

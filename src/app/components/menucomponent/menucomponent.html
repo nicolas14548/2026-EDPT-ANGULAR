@@ -1,6 +1,6 @@
 <div class="container">
   <mat-toolbar>
-    <button matIconButton routerLink="/" class="example-icon" aria-label="Example icon-button with menu icon">
+    <button matIconButton routerLink="/inicio" class="example-icon" aria-label="Example icon-button with menu icon">
       <mat-icon>home</mat-icon>
     </button>
 
@@ -31,7 +31,16 @@
       <button mat-menu-item routerLink="/evaluacion/cantidades">Cantidades</button>
     </mat-menu>
 
-    <button matButton (click)="cerrarSesion()" style="color: aliceblue;">Salir</button>
+    @if (username) {
+    <span class="user-info">
+      {{ username }} <span class="role">{{ roles }}</span>
+    </span>
+
+    <button matButton type="button" class="logout-button" aria-label="Cerrar sesión" (click)="cerrarSesion()">
+      <mat-icon aria-hidden="true" style="color: aliceblue;">logout</mat-icon>
+      <span style="color: aliceblue;">Cerrar sesión</span>
+    </button>
+    }
 
   </mat-toolbar>
 </div>

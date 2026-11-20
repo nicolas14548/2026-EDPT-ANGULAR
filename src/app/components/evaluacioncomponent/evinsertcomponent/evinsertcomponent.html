@@ -36,15 +36,6 @@
         </mat-select>
       </mat-form-field>
       <br>
-      <mat-form-field>
-        <mat-label>Creado por</mat-label>
-        <mat-select formControlName="idCreadoPor">
-          @for (u of usuarios; track u.id) {
-          <mat-option [value]="u.id">{{u.nombre}} {{u.apellido}}</mat-option>
-          }
-        </mat-select>
-      </mat-form-field>
-      <br>
       <button matButton type="submit">Registrar</button>
 
     </form>

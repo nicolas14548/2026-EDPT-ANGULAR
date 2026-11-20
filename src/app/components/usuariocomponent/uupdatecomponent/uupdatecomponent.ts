@@ -49,8 +49,8 @@ export class Uupdatecomponent implements OnInit {
       grado: [null],
       seccion: [null],
       idCreadoPor: [null],
-      idActualizadoPor: [null, Validators.required],
-      estado: ['ACTIVO', Validators.required]
+      idActualizadoPor: [null],
+      enabled: [true]
     });
   }
 
@@ -92,7 +92,7 @@ export class Uupdatecomponent implements OnInit {
           idDocente: data.idDocente,
           grado: data.grado,
           seccion: data.seccion,
-          estado: data.estado || 'ACTIVO'
+          enabled: data.enabled ?? true
         })
         this.cdr.detectChanges()
       },
@@ -120,7 +120,7 @@ export class Uupdatecomponent implements OnInit {
       idDocente: this.form.value.idDocente,
       grado: this.form.value.grado,
       seccion: this.form.value.seccion,
-      estado: this.form.value.estado,
+      enabled: this.form.value.enabled,
       idCreadoPor: this.form.value.idCreadoPor,
       idActualizadoPor: this.form.value.idActualizadoPor
     }

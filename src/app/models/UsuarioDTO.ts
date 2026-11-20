@@ -8,7 +8,7 @@ export class UsuarioDTO {
     idDocente: number | null = null
     grado: number | null = null
     seccion: string | null = null
-    estado: string = ''
+    enabled: boolean = true
     fechaRegistro: string | null = null
     updatedAt: string | null = null
     idCreadoPor: number | null = null

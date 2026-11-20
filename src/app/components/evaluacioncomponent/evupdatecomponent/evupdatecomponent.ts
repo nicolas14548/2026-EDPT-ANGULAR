@@ -41,7 +41,7 @@ export class Evupdatecomponent implements OnInit {
       codigo: [0],
       idEstudiante: [null, Validators.required],
       estado: ['EN_CURSO', Validators.required],
-      idActualizadoPor: [null, Validators.required]
+      idActualizadoPor: [null]
     });
   }
 

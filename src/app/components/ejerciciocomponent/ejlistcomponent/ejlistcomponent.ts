@@ -1,4 +1,7 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
+import { Loginservice } from '../../../services/loginservice';
+import { UsuarioDTO } from '../../../models/UsuarioDTO';
+import { Usuarioservice } from '../../../services/usuarioservice';
 import { DatePipe } from '@angular/common';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
@@ -14,7 +17,9 @@ import { Ejercicioservice } from '../../../services/ejercicioservice';
 })
 export class Ejlistcomponent implements OnInit {
 
-  displayedColumns: string[] = ['C1', 'C2', 'C3', 'C4', 'C5', 'C6', 'C7', 'C8', 'C9', 'C10', 'C11', 'C12']
+  esAdmin = inject(Loginservice).hasAnyRole(['ADMIN'])
+
+  displayedColumns: string[] = ['C1', 'C2', 'C3', 'C4', 'C5', 'C6', 'C9', 'C10', 'C11', 'C12', 'C7', 'C8']
   dataSource: EjercicioDTO[] = []
   mensaje: string = ''
 
@@ -23,7 +28,28 @@ export class Ejlistcomponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.cargarUsuarios()
     this.obtener()
+  }
+
+  listaUsuarios: UsuarioDTO[] = []
+  servicioUsuarios = inject(Usuarioservice)
+
+  cargarUsuarios(): void {
+    this.servicioUsuarios.getUsuario().subscribe({
+      next: data => {
+        this.listaUsuarios = data
+        this.cdr.detectChanges()
+      }, error: err => console.log(err)
+    })
+  }
+
+  nombreUsuario(id: number | null): string {
+    if (id == null) {
+      return '-'
+    }
+    const usuario = this.listaUsuarios.find(u => u.id === id)
+    return usuario ? `${usuario.nombre} ${usuario.apellido}` : String(id)
   }
 
   obtener(): void {

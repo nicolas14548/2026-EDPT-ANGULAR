@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
-import { Authservice } from '../../services/authservice';
+import { Loginservice } from '../../services/loginservice';
 
 @Component({
   selector: 'app-logincomponent',
@@ -21,7 +21,8 @@ export class Logincomponent {
   form: FormGroup
   mensaje: string = ''
 
-  constructor(private cS: Authservice, private fb: FormBuilder, private router: Router, private cdr: ChangeDetectorRef) {
+  constructor(private cS: Loginservice, private fb: FormBuilder, private router: Router, private cdr: ChangeDetectorRef) {
+    this.cS.logout();
     this.form = this.fb.group({
       username: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
@@ -33,9 +34,9 @@ export class Logincomponent {
       this.mensaje = 'Por favor, ingrese un correo y una contraseña válidos'
       return
     }
-    this.cS.login(this.form.value.username, this.form.value.password).subscribe({
+    this.cS.login({ username: this.form.value.username, password: this.form.value.password }).subscribe({
       next: () => {
-        this.router.navigate(['/'])
+        this.router.navigate(['/inicio'])
       },
       error: (error) => {
         console.log(error)

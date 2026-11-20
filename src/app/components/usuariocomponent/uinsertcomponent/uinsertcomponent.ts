@@ -41,8 +41,8 @@ export class Uinsertcomponent implements OnInit {
       password: ['', Validators.required],
       idRol: [null, Validators.required],
       idApoderado: [null],
-      idCreadoPor: [null, Validators.required],
-      estado: ['ACTIVO', Validators.required]
+      idCreadoPor: [null],
+      enabled: [true]
     });
   }
 
@@ -77,7 +77,7 @@ export class Uinsertcomponent implements OnInit {
       idDocente: null,
       grado: null,
       seccion: null,
-      estado: this.form.value.estado,
+      enabled: this.form.value.enabled,
       idCreadoPor: this.form.value.idCreadoPor,
       idActualizadoPor: null
     }
@@ -85,7 +85,7 @@ export class Uinsertcomponent implements OnInit {
     this.cS.insertUsuario(usuario).subscribe({
       next: () => {
         this.mensaje = 'Usuario insertado correctamente!!'
-        this.form.reset({ idApoderado: null, estado: 'ACTIVO' })
+        this.form.reset({ idApoderado: null, enabled: true })
         this.cdr.detectChanges()
       },
       error: (error) => {

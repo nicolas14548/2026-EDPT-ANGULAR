@@ -38,7 +38,7 @@ export class Evinsertcomponent implements OnInit {
       estado: ['EN_CURSO', Validators.required],
       totalEjercicios: [null, Validators.required],
       fechaInicio: ['', Validators.required],
-      idCreadoPor: [null, Validators.required]
+      idCreadoPor: [null]
     });
   }
 
