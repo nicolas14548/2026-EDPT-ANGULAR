@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { Evaluacionservice } from '../../../services/evaluacionservice';
 import { Usuarioservice } from '../../../services/usuarioservice';
 import { EvaluacionDTO } from '../../../models/EvaluacionDTO';
+import { EvaluacionInsertDTO } from '../../../models/EvaluacionInsertDTO';
 import { UsuarioDTO } from '../../../models/UsuarioDTO';
 
 @Component({
@@ -39,7 +40,8 @@ export class Evupdatecomponent implements OnInit {
     this.form = this.fb.group({
       codigo: [0],
       idEstudiante: [null, Validators.required],
-      estado: ['EN_CURSO', Validators.required]
+      estado: ['EN_CURSO', Validators.required],
+      idActualizadoPor: [null, Validators.required]
     });
   }
 
@@ -88,7 +90,7 @@ export class Evupdatecomponent implements OnInit {
       this.mensaje = 'Primero debe cargar la evaluación'
       return
     }
-    const dto: EvaluacionDTO = {
+    const dto: EvaluacionInsertDTO = {
       id: this.form.value.codigo,
       idEstudiante: this.form.value.idEstudiante,
       estado: this.form.value.estado,
@@ -97,7 +99,9 @@ export class Evupdatecomponent implements OnInit {
       fechaInicio: this.evaluacionOriginal.fechaInicio,
       fechaFin: this.evaluacionOriginal.fechaFin,
       puntaje: this.evaluacionOriginal.puntaje,
-      respuestas: this.evaluacionOriginal.respuestas
+      respuestas: this.evaluacionOriginal.respuestas,
+      idCreadoPor: this.evaluacionOriginal.idCreadoPor,
+      idActualizadoPor: this.form.value.idActualizadoPor
     }
 
     this.cS.update(dto).subscribe({

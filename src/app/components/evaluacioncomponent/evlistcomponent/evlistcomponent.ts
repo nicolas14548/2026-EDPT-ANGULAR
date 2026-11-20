@@ -16,7 +16,7 @@ import { Usuarioservice } from '../../../services/usuarioservice';
 })
 export class Evlistcomponent implements OnInit {
 
-  displayedColumns: string[] = ['C1', 'C2', 'C3', 'C4', 'C5', 'C6', 'C7']
+  displayedColumns: string[] = ['C1', 'C2', 'C3', 'C4', 'C5', 'C6', 'C7', 'C8', 'C9']
   dataSource: EvaluacionDTO[] = []
   mensaje: string = ''
   usuarios: UsuarioDTO[] = []

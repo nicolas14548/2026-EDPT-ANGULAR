@@ -8,4 +8,6 @@ export class EvaluacionDTO {
     fechaFin: string | null = null
     puntaje: number | null = null
     respuestas: string | null = null
+    idCreadoPor: number | null = null
+    idActualizadoPor: number | null = null
 }

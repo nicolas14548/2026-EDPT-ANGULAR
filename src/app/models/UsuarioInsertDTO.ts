@@ -10,4 +10,6 @@ export class UsuarioInsertDTO {
     grado: number | null = null
     seccion: string | null = null
     estado: string = ''
+    idCreadoPor: number | null = null
+    idActualizadoPor: number | null = null
 }

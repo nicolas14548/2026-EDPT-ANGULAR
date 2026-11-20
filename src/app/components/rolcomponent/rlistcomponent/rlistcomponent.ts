@@ -1,4 +1,6 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { DatePipe } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
@@ -7,13 +9,12 @@ import { Rolservice } from '../../../services/rolservice';
 
 @Component({
   selector: 'app-rlistcomponent',
-  imports: [MatTableModule, MatIconModule, RouterLink],
+  imports: [MatTableModule, MatIconModule, MatButtonModule, RouterLink, DatePipe],
   templateUrl: './rlistcomponent.html',
   styleUrl: './rlistcomponent.css',
 })
 export class Rlistcomponent implements OnInit {
-
-  displayedColumns: string[] = ['C1', 'C2', 'C3', 'C4', 'C5']
+  displayedColumns: string[] = ['C1', 'C2', 'C3', 'C6', 'C7', 'C8', 'C9', 'C4', 'C5']  
   dataSource: RolDTO[] = []
   mensaje: string = ''
 

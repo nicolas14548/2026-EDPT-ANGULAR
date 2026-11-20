@@ -1,4 +1,5 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { DatePipe } from '@angular/common';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
@@ -9,13 +10,13 @@ import { Rolservice } from '../../../services/rolservice';
 
 @Component({
   selector: 'app-ulistcomponent',
-  imports: [MatTableModule, MatIconModule, RouterLink],
+  imports: [MatTableModule, MatIconModule, RouterLink, DatePipe],
   templateUrl: './ulistcomponent.html',
   styleUrl: './ulistcomponent.css',
 })
 export class Ulistcomponent implements OnInit {
 
-  displayedColumns: string[] = ['C1', 'C2', 'C3', 'C4', 'C5', 'C6', 'C7', 'C8']
+  displayedColumns: string[] = ['C1', 'C2', 'C3', 'C4', 'C5', 'C6', 'C7', 'C8', 'C9', 'C10', 'C11', 'C12']
   dataSource: UsuarioDTO[] = []
   mensaje: string = ''
   roles: RolDTO[] = []

@@ -44,6 +44,7 @@ export class Ejupdatecomponent implements OnInit {
       enunciado: ['', Validators.required],
       respuestaCorrecta: ['', Validators.required],
       idCreadoPor: [null, Validators.required],
+      idActualizadoPor: [null, Validators.required],
       contenidoJson: [''],
       nivelDificultad: [1],
       estado: ['ACTIVO'],
@@ -86,6 +87,7 @@ export class Ejupdatecomponent implements OnInit {
           nivelDificultad: data.nivelDificultad,
           generadoPorIa: data.generadoPorIa,
           idCreadoPor: data.idCreadoPor,
+          idActualizadoPor: data.idActualizadoPor,
           estado: data.estado
         })
         this.cdr.detectChanges()
@@ -113,6 +115,7 @@ export class Ejupdatecomponent implements OnInit {
       nivelDificultad: this.form.value.nivelDificultad,
       generadoPorIa: this.form.value.generadoPorIa,
       idCreadoPor: this.form.value.idCreadoPor,
+      idActualizadoPor: this.form.value.idActualizadoPor,
       estado: this.form.value.estado
     }
 

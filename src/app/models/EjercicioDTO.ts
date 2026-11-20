@@ -10,4 +10,5 @@ export class EjercicioDTO {
     estado: string = ''
     createdAt: string | null = null
     updatedAt: string | null = null
+    idActualizadoPor: number | null = null
 }

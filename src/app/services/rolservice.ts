@@ -29,8 +29,7 @@ export class Rolservice {
     return this.http.get<RolDTO>(`${this.apiURL}/${id}`);
   }
 
-  update(dto: RolDTO): Observable<RolDTO> {
+  update(dto: RolInsertDTO): Observable<RolDTO> {
     return this.http.put<RolDTO>(this.apiURL, dto);
   }
-
 }

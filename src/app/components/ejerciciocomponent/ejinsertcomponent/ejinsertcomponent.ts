@@ -76,6 +76,7 @@ export class Ejinsertcomponent implements OnInit {
       nivelDificultad: this.form.value.nivelDificultad,
       generadoPorIa: this.form.value.generadoPorIa,
       idCreadoPor: this.form.value.idCreadoPor,
+      idActualizadoPor: null,
       estado: this.form.value.estado
     }
 

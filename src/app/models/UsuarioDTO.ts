@@ -11,4 +11,6 @@ export class UsuarioDTO {
     estado: string = ''
     fechaRegistro: string | null = null
     updatedAt: string | null = null
+    idCreadoPor: number | null = null
+    idActualizadoPor: number | null = null
 }

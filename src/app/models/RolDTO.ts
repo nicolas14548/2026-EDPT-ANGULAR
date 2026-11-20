@@ -4,4 +4,6 @@ export class RolDTO {
     descripcionRol: string = ''
     fechaCreacionRol: string | null = null
     actualizadoEnRol: string | null = null
+    idCreadoPor: number | null = null
+    idActualizadoPor: number | null = null
 }

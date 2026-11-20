@@ -9,4 +9,5 @@ export class EjercicioInsertDTO {
     generadoPorIa: boolean = false
     idCreadoPor: number | null = null
     estado: string = ''
+    idActualizadoPor: number | null = null
 }

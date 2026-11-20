@@ -3,6 +3,7 @@ import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { EvaluacionDTO } from '../models/EvaluacionDTO';
+import { EvaluacionInsertDTO } from '../models/EvaluacionInsertDTO';
 import { EvaluacionesPorEstudianteDTO } from '../models/EvaluacionesPorEstudianteDTO';
 
 @Injectable({
@@ -21,7 +22,7 @@ export class Evaluacionservice {
     return this.http.delete<void>(`${this.apiURL}/${id}`);
   }
 
-  insertEvaluacion(dto: EvaluacionDTO): Observable<EvaluacionDTO> {
+  insertEvaluacion(dto: EvaluacionInsertDTO): Observable<EvaluacionDTO> {
     return this.http.post<EvaluacionDTO>(this.apiURL, dto);
   }
 
@@ -29,7 +30,7 @@ export class Evaluacionservice {
     return this.http.get<EvaluacionDTO>(`${this.apiURL}/${id}`);
   }
 
-  update(dto: EvaluacionDTO): Observable<EvaluacionDTO> {
+  update(dto: EvaluacionInsertDTO): Observable<EvaluacionDTO> {
     return this.http.put<EvaluacionDTO>(this.apiURL, dto);
   }
 

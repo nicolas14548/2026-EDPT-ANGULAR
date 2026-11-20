@@ -1,4 +1,5 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { DatePipe } from '@angular/common';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
@@ -7,13 +8,13 @@ import { Ejercicioservice } from '../../../services/ejercicioservice';
 
 @Component({
   selector: 'app-ejlistcomponent',
-  imports: [MatTableModule, MatIconModule, RouterLink],
+  imports: [MatTableModule, MatIconModule, RouterLink, DatePipe],
   templateUrl: './ejlistcomponent.html',
   styleUrl: './ejlistcomponent.css',
 })
 export class Ejlistcomponent implements OnInit {
 
-  displayedColumns: string[] = ['C1', 'C2', 'C3', 'C4', 'C5', 'C6', 'C7', 'C8']
+  displayedColumns: string[] = ['C1', 'C2', 'C3', 'C4', 'C5', 'C6', 'C7', 'C8', 'C9', 'C10', 'C11', 'C12']
   dataSource: EjercicioDTO[] = []
   mensaje: string = ''
 

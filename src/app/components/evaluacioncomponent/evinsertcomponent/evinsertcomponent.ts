@@ -6,7 +6,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { Evaluacionservice } from '../../../services/evaluacionservice';
 import { Usuarioservice } from '../../../services/usuarioservice';
-import { EvaluacionDTO } from '../../../models/EvaluacionDTO';
+import { EvaluacionInsertDTO } from '../../../models/EvaluacionInsertDTO';
 import { UsuarioDTO } from '../../../models/UsuarioDTO';
 
 @Component({
@@ -37,7 +37,8 @@ export class Evinsertcomponent implements OnInit {
       tipo: ['', Validators.required],
       estado: ['EN_CURSO', Validators.required],
       totalEjercicios: [null, Validators.required],
-      fechaInicio: ['', Validators.required]
+      fechaInicio: ['', Validators.required],
+      idCreadoPor: [null, Validators.required]
     });
   }
 
@@ -55,7 +56,7 @@ export class Evinsertcomponent implements OnInit {
       this.mensaje = 'Por favor, complete todos los campos correctamente!!'
       return
     }
-    const evaluacion: EvaluacionDTO = {
+    const evaluacion: EvaluacionInsertDTO = {
       id: 0,
       idEstudiante: this.form.value.idEstudiante,
       tipo: this.form.value.tipo,
@@ -64,7 +65,9 @@ export class Evinsertcomponent implements OnInit {
       fechaInicio: this.form.value.fechaInicio,
       fechaFin: null,
       puntaje: null,
-      respuestas: null
+      respuestas: null,
+      idCreadoPor: this.form.value.idCreadoPor,
+      idActualizadoPor: null
     }
 
     this.cS.insertEvaluacion(evaluacion).subscribe({

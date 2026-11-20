@@ -48,6 +48,8 @@ export class Uupdatecomponent implements OnInit {
       idDocente: [null],
       grado: [null],
       seccion: [null],
+      idCreadoPor: [null],
+      idActualizadoPor: [null, Validators.required],
       estado: ['ACTIVO', Validators.required]
     });
   }
@@ -85,6 +87,8 @@ export class Uupdatecomponent implements OnInit {
           email: data.email,
           idRol: data.idRol,
           idApoderado: data.idApoderado,
+          idCreadoPor: data.idCreadoPor,
+          idActualizadoPor: data.idActualizadoPor,
           idDocente: data.idDocente,
           grado: data.grado,
           seccion: data.seccion,
@@ -116,7 +120,9 @@ export class Uupdatecomponent implements OnInit {
       idDocente: this.form.value.idDocente,
       grado: this.form.value.grado,
       seccion: this.form.value.seccion,
-      estado: this.form.value.estado
+      estado: this.form.value.estado,
+      idCreadoPor: this.form.value.idCreadoPor,
+      idActualizadoPor: this.form.value.idActualizadoPor
     }
 
     this.cS.update(dto).subscribe({

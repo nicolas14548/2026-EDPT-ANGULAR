@@ -16,6 +16,8 @@ import { Evaluacioncomponent } from './components/evaluacioncomponent/evaluacion
 import { Evlistcomponent } from './components/evaluacioncomponent/evlistcomponent/evlistcomponent';
 import { Evinsertcomponent } from './components/evaluacioncomponent/evinsertcomponent/evinsertcomponent';
 import { Evupdatecomponent } from './components/evaluacioncomponent/evupdatecomponent/evupdatecomponent';
+import { Logincomponent } from './components/logincomponent/logincomponent';
+import { authGuard } from './guards/auth.guard';
 import { Evbuscarcomponent } from './components/evaluacioncomponent/evbuscarcomponent/evbuscarcomponent';
 
 import { Ucantidadcomponent } from './components/usuariocomponent/ucantidadcomponent/ucantidadcomponent';
@@ -23,12 +25,19 @@ import { Evcantidadcomponent } from './components/evaluacioncomponent/evcantidad
 
 export const routes: Routes = [
   {
+    path: 'login',
+    component: Logincomponent,
+  },
+
+  {
     path: '',
     component: Homecomponent,
+    canActivate: [authGuard],
   },
 
   {
     path: 'rol',
+    canActivate: [authGuard],
     component: Rolcomponent,
     children: [
       {
@@ -52,6 +61,7 @@ export const routes: Routes = [
 
   {
     path: 'usuario',
+    canActivate: [authGuard],
     component: Usuariocomponent,
     children: [
       {
@@ -79,6 +89,7 @@ export const routes: Routes = [
 
   {
     path: 'ejercicio',
+    canActivate: [authGuard],
     component: Ejerciciocomponent,
     children: [
       {
@@ -102,6 +113,7 @@ export const routes: Routes = [
 
   {
     path: 'evaluacion',
+    canActivate: [authGuard],
     component: Evaluacioncomponent,
     children: [
       {
